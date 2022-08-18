@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Cart</title>
+</head>
+
+<body>
+    <main>
+
+        <div class="grid grid-rows-2 gap-10 m-auto">
+            <div class="grid grid-cols-3 gap-10 place-items-center m-auto">
+                <div class="image text-center">
+                    <img src="images/product-1.png" alt="iphone">
+                </div>
+                <div class="name text-center">
+                    <h2 class="font-bold text-2xl">iPhone 11 128GB Black</h2>
+                </div>
+                <div class="cart grid grid-cols-3">
+                    <div class="add grid grid-cols-3 gap-2">
+                        <button id="minusPhone"><i class="fa-solid fa-minus"></i></button>
+                        <input id="inputPhone" type="text" value="1">
+                        <button id="plusPhone"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="amount text-center text-2xl font-bold">
+                        $<span id="mobileAmount">1219</span>
+                    </div>
+                    <div class="cross">
+                        <img src="images/remove.png" alt="cross">
+                    </div>
+
+                </div>
+            </div>
+            <!--2nd row-->
+
+            <div class="grid grid-cols-3 gap-10 place-items-center">
+                <div class="image text-center">
+                    <img src="images/product-2.png" alt="iphone">
+                </div>
+                <div class="name text-center">
+                    <h2 class="font-bold text-2xl">iPhone 11 Silicone Case - Black</h2>
+                </div>
+                <div class="cart grid grid-cols-3">
+                    <div class="add grid grid-cols-3 gap-2">
+                        <button id="minusCase"><i class="fa-solid fa-minus"></i></button>
+                        <input id="inputCase" type="text" value="1">
+                        <button id="plusCase"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="amount text-center text-2xl font-bold">
+                        $<span id="caseAmount">59</span>
+                    </div>
+                    <div class="cross">
+                        <img src="images/remove.png" alt="cross">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--total-->
+        <div class="container m-auto">
+            <div class="container grid grid-rows-3 mt-10">
+                <div class="container grid grid-cols-2 gap-36 place-items-center">
+                    <div class="subtotal">
+                        <h3 class="font-bold text-3xl">Subtotal</h3>
+                    </div>
+                    <div class="subtotalAmount">
+                        <h3 class="font-bold text-3xl">$<span id="subtotal">1278</span></h3>
+                    </div>
+                </div>
+                <div class="container grid grid-cols-2 gap-36 place-items-center">
+                    <div class="tax">
+                        <h3 class="font-bold text-3xl">Tax</h3>
+                    </div>
+                    <div class="taxAmount">
+                        <h3 class="font-bold text-3xl">$0</h3>
+                    </div>
+                </div>
+                <div class="container grid grid-cols-2 gap-36 place-items-center">
+                    <div class="total">
+                        <h3 class="font-bold text-3xl">Total</h3>
+                    </div>
+                    <div class="subtotalAmount">
+                        <h3 class="font-bold text-3xl">$<span id="total">1278</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        //minus handle
+        // function minusBtnHandler(inputId, amountId, price) {
+        //     const inputValue = document.getElementById(inputId).value;
+        //     const inputNumber = parseFloat(inputValue);
+        //     if(inputNumber>0){
+        //     const newCart = inputNumber - 1;
+        //     document.getElementById(inputId).value = newCart;
+
+        //     const amount = document.getElementById(amountId).innerText;
+        //     const amountNumber = parseFloat(amount);
+        //     const newAmount = amountNumber - price;
+        //     document.getElementById(amountId).innerText = newAmount;
+
+        //     const subTotal = document.getElementById("subtotal").innerText;
+        //     const subTotalAmount = parseFloat(subTotal);
+        //     const newSubTotal = subTotalAmount - price;
+        //     document.getElementById("subtotal").innerText = newSubTotal;
+
+        //     const total = document.getElementById("total").innerText;
+        //     const totalAmount = parseFloat(total);
+        //     const newTotal = totalAmount - price;
+        //     document.getElementById("total").innerText = newTotal;}
+        // }
+
+
+
+        //plus handle
+
+        // function plusBtnHandler(inputId, amountId, price) {
+        //     const inputValue = document.getElementById(inputId).value;
+        //     const inputNumber = parseInt(inputValue);
+        //     const newCart = inputNumber + 1;
+        //     document.getElementById(inputId).value = newCart;
+
+        //     const amount = document.getElementById(amountId).innerText;
+        //     const amountNumber = parseFloat(amount);
+        //     const newAmount = amountNumber + price;
+        //     document.getElementById(amountId).innerText = newAmount;
+
+        //     const subTotal = document.getElementById("subtotal").innerText;
+        //     const subTotalAmount = parseFloat(subTotal);
+        //     const newSubTotal = subTotalAmount + price;
+        //     document.getElementById("subtotal").innerText = newSubTotal;
+
+        //     const total = document.getElementById("total").innerText;
+        //     const totalAmount = parseFloat(total);
+        //     const newTotal = totalAmount + price;
+        //     document.getElementById("total").innerText = newTotal;
+        // }
+
+        function btnHandler(btnType, inputId, amountId, price) {
+            const inputValue = document.getElementById(inputId).value;
+            const inputNumber = parseInt(inputValue);
+
+            const amount = document.getElementById(amountId).innerText;
+            const amountNumber = parseFloat(amount);
+
+            const subTotal = document.getElementById("subtotal").innerText;
+            const subTotalAmount = parseFloat(subTotal);
+
+            const total = document.getElementById("total").innerText;
+            const totalAmount = parseFloat(total);
+
+            let newCart;
+            let newAmount;
+            let newSubTotal;
+            let newTotal;
+            
+            if (btnType === "plus") {
+                if (inputNumber >= 0) {
+                    newCart = inputNumber + 1;
+                    document.getElementById(inputId).value = newCart;
+                    newAmount = amountNumber + price;
+                    document.getElementById(amountId).innerText = newAmount;
+                    newSubTotal = subTotalAmount + price;
+                    document.getElementById("subtotal").innerText = newSubTotal;
+                    newTotal = totalAmount + price;
+                    document.getElementById("total").innerText = newTotal;
+
+                }
+            }
+            else if (btnType === "minus") {
+                if (inputNumber > 0) {
+                    newCart = inputNumber - 1;
+                    document.getElementById(inputId).value = newCart;
+                    newAmount = amountNumber - price;
+                    document.getElementById(amountId).innerText = newAmount;
+                    newSubTotal = subTotalAmount - price;
+                    document.getElementById("subtotal").innerText = newSubTotal;
+                    newTotal = totalAmount - price;
+                    document.getElementById("total").innerText = newTotal;
+                }
+            }
+        }
+
+        //plus function handle
+        const plusPhoneBtn = document.getElementById("plusPhone");
+        plusPhoneBtn.addEventListener("click", function () {
+            btnHandler("plus", "inputPhone", "mobileAmount", 1219);
+        })
+
+        const plusCaseBtn = document.getElementById("plusCase");
+        plusCaseBtn.addEventListener("click", function () {
+            btnHandler("plus", "inputCase", "caseAmount", 59);
+        })
+
+        //minus function handle
+        const minusPhoneBtn = document.getElementById("minusPhone");
+        minusPhoneBtn.addEventListener("click", function () {
+            btnHandler("minus", "inputPhone", "mobileAmount", 1219);
+        })
+
+        const minusCaseBtn = document.getElementById("minusCase");
+        minusCaseBtn.addEventListener("click", function () {
+            btnHandler("minus", "inputCase", "caseAmount", 59);
+        })
+
+
+    </script>
+</body>
+
+</html>
